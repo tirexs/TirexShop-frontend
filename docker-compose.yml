@@ -1,0 +1,18 @@
+services:
+  tirexshopfrontend:
+    image: tirexshopfrontend
+    container_name: TirexShopFrontend
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:80
+    networks:
+    - tirexshop-network
+
+networks:
+  tirexshop-network:
+    driver: bridge
+    external: true

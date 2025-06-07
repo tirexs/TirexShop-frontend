@@ -1,0 +1,10 @@
+<div
+  class="custom-navigation-block-padding custom-navigation-block-box-shadow custom-navigation-block-height"
+  *ngIf="!isAuthPage()"
+>
+  <app-main-layout-navigation-block></app-main-layout-navigation-block>
+</div>
+
+<div class="d-block custom-main-content-height tui-space_left-4 tui-space_right-4">
+  <router-outlet></router-outlet>
+</div>

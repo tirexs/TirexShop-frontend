@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <tui-island class="w-25">
+    <form [formGroup]="loginForm">
+      <div class="tui-form__row">
+        <tui-input
+            formControlName="usernameValue"
+            tuiHintContent="With a hint"
+        >
+            Имя пользователя
+            <input
+                placeholder="Имя пользователя"
+                tuiTextfield
+            />
+        </tui-input>
+    </div>
+    <div class="tui-form__row">
+      <tui-input
+          formControlName="passwordValue"
+          tuiHintContent="With a hint"
+      >
+          Пароль
+          <input
+              placeholder="Пароль"
+              tuiTextfield
+          />
+      </tui-input>
+    </div>
+    </form>
+    <div class="d-flex justify-content-between m-3">
+      <button
+        class="btn"
+        size="m"
+        tuiButton
+        type="submit"
+        (click)="loginClick()"
+      >
+        Войти
+      </button>
+      <button
+        class="btn"
+        size="m"
+        tuiButton
+        type="submit"
+        (click)="goToRegister()"
+      >
+        Зарегистрироваться
+      </button>
+    </div>
+  </tui-island>
+</div>
