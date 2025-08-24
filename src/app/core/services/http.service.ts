@@ -47,6 +47,16 @@ export class HttpService {
     )
   }
 
+  authPost(url: string, body: any): Observable<any> {
+    return this.http.post(
+      environment.urlToBackEnd + 'api/' + url,
+      JSON.stringify(body),
+      {
+        headers: this.headers,
+      }
+    )
+  }
+
   delete(url: string): Observable<any> {
     return this.http.delete(environment.urlToBackEnd + 'api/' + url, {
       headers: this.headers,

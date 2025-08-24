@@ -21,7 +21,7 @@ import { HttpClientModule } from '@angular/common/http'
     {
       provide: TUI_LANGUAGE,
       useValue: of(TUI_RUSSIAN_LANGUAGE),
-    },
+    }
   ],
   bootstrap: [AppComponent],
 })

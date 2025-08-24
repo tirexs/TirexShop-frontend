@@ -32,8 +32,6 @@ export class MainLayoutNavigationBlockComponent implements OnInit{
     },
   ]
 
-  public noAuthorizedNavButton: INavTab = { name: 'Войти', link: 'auth/login', isDisabled: false, iconName: 'home' }
-
   constructor(private authService: AuthService,) {}
 
   ngOnInit(): void {
@@ -47,6 +45,10 @@ export class MainLayoutNavigationBlockComponent implements OnInit{
     setTimeout(() => {
       this.isTabsDisabled.next(false)
     }, 1000)
+  }
+
+  redirectToAuth(){
+    this.authService.redirectToAuth()
   }
 
   logout(){

@@ -29,7 +29,7 @@ import { BehaviorSubject,  } from 'rxjs'
 export class MainLayoutComponent implements OnInit, OnDestroy, AfterViewInit {
   public skeleton$ = new BehaviorSubject<boolean>(true)
 
-  constructor(private router: Router) {}
+  constructor() {}
 
   ngOnInit(): void {
 
@@ -41,11 +41,5 @@ export class MainLayoutComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngAfterViewInit(): void {
   }
-
-  isAuthPage(): boolean {
-    return this.router.url === '/auth' || this.router.url === '/auth/login' || this.router.url === '/auth/register' ? true : false;
-  }
-
-
 }
 

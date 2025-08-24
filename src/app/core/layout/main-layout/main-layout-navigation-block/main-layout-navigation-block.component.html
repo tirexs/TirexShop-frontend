@@ -25,14 +25,12 @@
       tuiButton
       openNewTab
       size="m"
-      [tabLink]="noAuthorizedNavButton.link"
       type="button"
-      [disabled]="noAuthorizedNavButton.isDisabled || (isTabsDisabled | async)!"
-      [routerLink]="noAuthorizedNavButton.link"
-      routerLinkActive="active"
+      [disabled]="(isTabsDisabled | async)!"
       iconRight="tuiIconUser"
+      (click)="redirectToAuth()"
     >
-      {{ noAuthorizedNavButton.name }}
+      Войти
     </button>
   </div>
 </div>
