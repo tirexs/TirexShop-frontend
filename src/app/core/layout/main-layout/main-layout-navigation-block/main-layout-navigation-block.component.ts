@@ -19,17 +19,11 @@ export class MainLayoutNavigationBlockComponent implements OnInit{
 
   public accountNavigationButtonArray: INavTab[] = [
     {
-      name: 'Авторизация',
+      name: 'Заказы',
       link: 'auth/login',
-      isDisabled: false,
+      isDisabled: true,
       iconName: 'lan',
-    },
-    {
-      name: 'Регистрация',
-      link: 'auth/register',
-      isDisabled: false,
-      iconName: 'display_settings',
-    },
+    }
   ]
 
   constructor(private authService: AuthService,) {}

@@ -1,21 +1,21 @@
-import { HttpService } from '../../services/http.service';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, tap  } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClient, HttpParams } from '@angular/common/http'
+import { environment } from '../../../../environments/environment'
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private keycloakUrl = "http://localhost:18080/realms/TirexShop/protocol/openid-connect/auth";
+  private keycloakUrl = environment.keycloakUrl + "realms/TirexShop/protocol/openid-connect/auth";
   private clientId = "frontend";
-  private redirectUri = "http://localhost:4200/callback"; // где примем ответ
-  private tokenUrl = 'http://localhost:18080/realms/TirexShop/protocol/openid-connect/token';
+  private redirectUri = environment.production ? "http://TirexShopFrontend:80/callback" : "http://localhost:4200/callback"; // где примем ответ
+  private tokenUrl = environment.keycloakUrl + 'realms/TirexShop/protocol/openid-connect/token';
 
   public isAuthorized = new BehaviorSubject<boolean>(false)
 
-  constructor(private cookieService: CookieService, private httpService: HttpService, private http: HttpClient) {
+  constructor(private cookieService: CookieService, private http: HttpClient) {
     if(this.cookieService.get('access_token')){
       this.isAuthorized.next(true)
     }
@@ -42,7 +42,7 @@ export class AuthService {
 
     // редирект на Keycloak logout
     const redirectUri = encodeURIComponent(window.location.origin + '/');
-    window.location.href = `http://localhost:18080/realms/TirexShop/protocol/openid-connect/logout?redirect_uri=${redirectUri}`;
+    window.location.href = environment.keycloakUrl + `realms/TirexShop/protocol/openid-connect/logout?redirect_uri=${redirectUri}`;
 
     this.isAuthorized.next(false)
   }

@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   urlToBackEnd: 'http://localhost:5000/',
+  keycloakUrl: 'http://localhost:18080/'
 }
 /*
  * For easier debugging in development mode, you can import the following file
